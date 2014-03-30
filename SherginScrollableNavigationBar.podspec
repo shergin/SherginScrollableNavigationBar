@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SherginScrollableNavigationBar"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "A scrollable UINavigationBar that follows a UIScrollView."
   s.description      = <<-DESC
                        A scrollable UINavigationBar that follows a UIScrollView.
