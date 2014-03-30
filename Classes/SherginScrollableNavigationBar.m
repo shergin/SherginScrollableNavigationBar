@@ -126,7 +126,9 @@ SEL scrollViewDidScrollOriginalSelector;
     }
 
     if ([self respondsToSelector:scrollViewDidScrollOriginalSelector]) {
-        [self performSelector:scrollViewDidScrollOriginalSelector withObject:scrollView];
+        // This is another way to perform (without compiler warning):
+        // [self performSelector:scrollViewDidScrollOriginalSelector withObject:scrollView];
+        ((void (*)(id, SEL))[self methodForSelector:scrollViewDidScrollOriginalSelector])(self, scrollViewDidScrollOriginalSelector);
     }
 }
 
