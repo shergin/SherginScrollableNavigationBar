@@ -34,8 +34,14 @@ typedef enum {
 
 SherginScrollableNavigationBar *_self;
 const CGFloat DefaultScrollTolerance = 44.0f;
+SEL scrollViewDidScrollOriginalSelector;
 
 @synthesize scrollView = _scrollView;
+
++ (void)initialize
+{
+    scrollViewDidScrollOriginalSelector = NSSelectorFromString(@"scrollViewDidScrollOriginal:");
+}
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
@@ -98,7 +104,7 @@ const CGFloat DefaultScrollTolerance = 44.0f;
 
     class_addMethod(
         [scrollViewDelegate class],
-        @selector(scrollViewDidScrollOriginal:),
+        scrollViewDidScrollOriginalSelector,
         method_getImplementation(methodOriginal),
         method_getTypeEncoding(methodOriginal)
     );
@@ -119,8 +125,8 @@ const CGFloat DefaultScrollTolerance = 44.0f;
         }
     }
 
-    if ([self respondsToSelector:@selector(scrollViewDidScrollOriginal:)]) {
-        [self performSelector:@selector(scrollViewDidScrollOriginal:) withObject:scrollView];
+    if ([self respondsToSelector:scrollViewDidScrollOriginalSelector]) {
+        [self performSelector:scrollViewDidScrollOriginalSelector withObject:scrollView];
     }
 }
 
