@@ -18,8 +18,7 @@ typedef enum {
 
 @interface SherginScrollableNavigationBar () <UIGestureRecognizerDelegate>
 
-@property (strong, nonatomic) UIPanGestureRecognizer* panGesture;
-
+@property (assign, nonatomic) BOOL scrollable;
 @property (assign, nonatomic) CGFloat scrollOffset;
 @property (assign, nonatomic) CGFloat scrollOffsetStart;
 @property (assign, nonatomic) CGFloat scrollOffsetRelative;
@@ -27,6 +26,7 @@ typedef enum {
 @property (assign, nonatomic) CGFloat barOffsetStart;
 @property (assign, nonatomic) CGFloat statusBarHeight;
 @property (assign, nonatomic) SherginScrollableNavigationBarState scrollState;
+@property (strong, nonatomic) UIPanGestureRecognizer* panGesture;
 
 @end
 
@@ -98,7 +98,6 @@ SEL scrollViewDidScrollOriginalSelector;
     Method methodWrapper = class_getInstanceMethod([self class], @selector(scrollViewDidScrollWrapper:));
 
     if (method_getImplementation(methodOriginal) == method_getImplementation(methodWrapper)) {
-        NSLog(@"Method scrollViewDidScroll in class already swizzled.");
         return;
     }
 
@@ -126,9 +125,10 @@ SEL scrollViewDidScrollOriginalSelector;
     }
 
     if ([self respondsToSelector:scrollViewDidScrollOriginalSelector]) {
-        // This is another way to perform (without compiler warning):
-        // [self performSelector:scrollViewDidScrollOriginalSelector withObject:scrollView];
-        ((void (*)(id, SEL))[self methodForSelector:scrollViewDidScrollOriginalSelector])(self, scrollViewDidScrollOriginalSelector);
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [self performSelector:scrollViewDidScrollOriginalSelector withObject:scrollView];
+        #pragma clang diagnostic pop
     }
 }
 
@@ -171,8 +171,20 @@ SEL scrollViewDidScrollOriginalSelector;
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
 shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
-    NSLog(@"shouldRecognizeSimultaneouslyWithGestureRecognizer");
     return YES;
+}
+
+#pragma mark - Helpers
+- (BOOL)scrollable {
+    CGSize contentSize = self.scrollView.contentSize;
+    UIEdgeInsets contentInset = self.scrollView.contentInset;
+    CGSize containerSize = self.scrollView.bounds.size;
+
+    CGFloat containerHeight = containerSize.height - contentInset.top - contentInset.bottom;
+    CGFloat contentHeight = contentSize.height;
+    CGFloat barHeight = self.frame.size.height;
+
+    return contentHeight - self.scrollTolerance - barHeight > containerHeight;
 }
 
 - (CGFloat)scrollOffset
@@ -187,13 +199,18 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
 
 - (void)scrollViewDidScroll
 {
+    if (!self.scrollable) {
+        [self setBarOffset:0 animated:NO];
+        return;
+    }
+
     CGFloat offset = self.scrollOffsetRelative;
     CGFloat tolerance = self.scrollTolerance;
 
     if (self.scrollOffsetRelative > 0) {
-        CGFloat minTolerance = self.barOffsetStart - self.scrollOffsetStart;
-        if (tolerance > minTolerance) {
-            tolerance = minTolerance;
+        CGFloat maxTolerance = self.barOffsetStart - self.scrollOffsetStart;
+        if (tolerance > maxTolerance) {
+            tolerance = maxTolerance;
         }
     }
 
@@ -204,19 +221,20 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
 
     [self setBarOffset:(self.barOffsetStart + offset) animated:NO];
 
-    if (self.scrollState == SherginScrollableNavigationBarStateFinishing) {
-        [self scrollViewEndScroll];
+    [self scrollFinishing];
+}
+
+- (void)scrollFinishing
+{
+    if (self.scrollState != SherginScrollableNavigationBarStateFinishing) {
+        return;
     }
+
+    [self debounce:@selector(scrollFinishingActually) delay:0.1f];
 }
 
-- (void)scrollViewEndScroll
+- (void)scrollFinishingActually
 {
-    [self debounce:@selector(scrollViewEndScrollActually) delay:0.1f];
-}
-
-- (void)scrollViewEndScrollActually
-{
-    NSLog(@"scrollViewEndScrollActually %i", self.scrollState);
     self.scrollState = SherginScrollableNavigationBarStateNone;
 
     CGFloat barOffset = self.barOffset;
@@ -236,7 +254,6 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
     [self setBarOffset:barOffset animated:YES];
 }
 
-#pragma mark - panGesture handler
 - (void)handlePan:(UIPanGestureRecognizer*)gesture
 {
     if (!self.scrollView || gesture.view != self.scrollView) {
@@ -256,17 +273,16 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
         [self scrollViewDidScroll];
     }
     else if (
-             gestureState == UIGestureRecognizerStateEnded ||
-             gestureState == UIGestureRecognizerStateCancelled ||
-             gestureState == UIGestureRecognizerStateFailed
-             ) {
+        gestureState == UIGestureRecognizerStateEnded ||
+        gestureState == UIGestureRecognizerStateCancelled ||
+        gestureState == UIGestureRecognizerStateFailed
+    ) {
         // End state
         self.scrollState = SherginScrollableNavigationBarStateFinishing;
-        [self scrollViewEndScroll];
+        [self scrollFinishing];
     }
 }
 
-#pragma mark - helper methods
 - (CGFloat)statusBarHeight
 {
     switch ([UIApplication sharedApplication].statusBarOrientation) {
