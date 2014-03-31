@@ -7,6 +7,9 @@
 
 To run the example project; clone the repo, and run `pod install` from the Example directory first.
 
+## Demo
+![](SherginScrollableNavigationBar.gif "SherginScrollableNavigationBar Demo")
+
 ## Requirements
 
 ## Installation
