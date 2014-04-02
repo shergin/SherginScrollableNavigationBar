@@ -1,5 +1,5 @@
 //
-//  SherginNavigationTableViewController.h
+//  SherginAppDelegate.h
 //  SherginScrollableNavigationBarDemo
 //
 //  Created by Valentin Shergin on 31/03/14.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SherginNavigationTableViewController : UITableViewController
+@interface SherginAppDelegate : UIResponder <UIApplicationDelegate>
+
+@property (strong, nonatomic) UIWindow *window;
 
 @end

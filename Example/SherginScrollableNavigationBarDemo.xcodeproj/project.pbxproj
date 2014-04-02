@@ -1,0 +1,470 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		59845DA418E9D954009183E0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59845DA318E9D954009183E0 /* Foundation.framework */; };
+		59845DA618E9D954009183E0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59845DA518E9D954009183E0 /* CoreGraphics.framework */; };
+		59845DA818E9D954009183E0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59845DA718E9D954009183E0 /* UIKit.framework */; };
+		59845DAE18E9D954009183E0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 59845DAC18E9D954009183E0 /* InfoPlist.strings */; };
+		59845DB018E9D954009183E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 59845DAF18E9D954009183E0 /* main.m */; };
+		59845DB418E9D954009183E0 /* SherginAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 59845DB318E9D954009183E0 /* SherginAppDelegate.m */; };
+		59845DB618E9D954009183E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59845DB518E9D954009183E0 /* Images.xcassets */; };
+		59845DBD18E9D954009183E0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59845DBC18E9D954009183E0 /* XCTest.framework */; };
+		59845DBE18E9D954009183E0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59845DA318E9D954009183E0 /* Foundation.framework */; };
+		59845DBF18E9D954009183E0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59845DA718E9D954009183E0 /* UIKit.framework */; };
+		59DB668318E9DCB60056C309 /* SherginNavigationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59DB668218E9DCB60056C309 /* SherginNavigationTableViewController.m */; };
+		B3D4D8085C6B4E7DA56ADFD1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34035E7A98CC4178A7671EAD /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		59845DC018E9D954009183E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 59845D9818E9D954009183E0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 59845D9F18E9D954009183E0;
+			remoteInfo = SherginScrollableNavigationBarDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		34035E7A98CC4178A7671EAD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		59845DA018E9D954009183E0 /* SherginScrollableNavigationBarDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SherginScrollableNavigationBarDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		59845DA318E9D954009183E0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		59845DA518E9D954009183E0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		59845DA718E9D954009183E0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		59845DAB18E9D954009183E0 /* SherginScrollableNavigationBarDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SherginScrollableNavigationBarDemo-Info.plist"; sourceTree = "<group>"; };
+		59845DAD18E9D954009183E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		59845DAF18E9D954009183E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		59845DB118E9D954009183E0 /* SherginScrollableNavigationBarDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SherginScrollableNavigationBarDemo-Prefix.pch"; sourceTree = "<group>"; };
+		59845DB218E9D954009183E0 /* SherginAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SherginAppDelegate.h; sourceTree = "<group>"; };
+		59845DB318E9D954009183E0 /* SherginAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SherginAppDelegate.m; sourceTree = "<group>"; };
+		59845DB518E9D954009183E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		59845DBB18E9D954009183E0 /* SherginScrollableNavigationBarDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SherginScrollableNavigationBarDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		59845DBC18E9D954009183E0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		59DB668118E9DCB60056C309 /* SherginNavigationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SherginNavigationTableViewController.h; sourceTree = "<group>"; };
+		59DB668218E9DCB60056C309 /* SherginNavigationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SherginNavigationTableViewController.m; sourceTree = "<group>"; };
+		A747884EF3824A3AA2D98C18 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		59845D9D18E9D954009183E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59845DA618E9D954009183E0 /* CoreGraphics.framework in Frameworks */,
+				59845DA818E9D954009183E0 /* UIKit.framework in Frameworks */,
+				59845DA418E9D954009183E0 /* Foundation.framework in Frameworks */,
+				B3D4D8085C6B4E7DA56ADFD1 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59845DB818E9D954009183E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59845DBD18E9D954009183E0 /* XCTest.framework in Frameworks */,
+				59845DBF18E9D954009183E0 /* UIKit.framework in Frameworks */,
+				59845DBE18E9D954009183E0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		59845D9718E9D954009183E0 = {
+			isa = PBXGroup;
+			children = (
+				59845DA918E9D954009183E0 /* SherginScrollableNavigationBarDemo */,
+				59845DA218E9D954009183E0 /* Frameworks */,
+				59845DA118E9D954009183E0 /* Products */,
+				A747884EF3824A3AA2D98C18 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		59845DA118E9D954009183E0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				59845DA018E9D954009183E0 /* SherginScrollableNavigationBarDemo.app */,
+				59845DBB18E9D954009183E0 /* SherginScrollableNavigationBarDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		59845DA218E9D954009183E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59845DA318E9D954009183E0 /* Foundation.framework */,
+				59845DA518E9D954009183E0 /* CoreGraphics.framework */,
+				59845DA718E9D954009183E0 /* UIKit.framework */,
+				59845DBC18E9D954009183E0 /* XCTest.framework */,
+				34035E7A98CC4178A7671EAD /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		59845DA918E9D954009183E0 /* SherginScrollableNavigationBarDemo */ = {
+			isa = PBXGroup;
+			children = (
+				59845DB218E9D954009183E0 /* SherginAppDelegate.h */,
+				59845DB318E9D954009183E0 /* SherginAppDelegate.m */,
+				59845DB518E9D954009183E0 /* Images.xcassets */,
+				59845DAA18E9D954009183E0 /* Supporting Files */,
+				59DB668118E9DCB60056C309 /* SherginNavigationTableViewController.h */,
+				59DB668218E9DCB60056C309 /* SherginNavigationTableViewController.m */,
+			);
+			path = SherginScrollableNavigationBarDemo;
+			sourceTree = "<group>";
+		};
+		59845DAA18E9D954009183E0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				59845DAB18E9D954009183E0 /* SherginScrollableNavigationBarDemo-Info.plist */,
+				59845DAC18E9D954009183E0 /* InfoPlist.strings */,
+				59845DAF18E9D954009183E0 /* main.m */,
+				59845DB118E9D954009183E0 /* SherginScrollableNavigationBarDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		59845D9F18E9D954009183E0 /* SherginScrollableNavigationBarDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 59845DCC18E9D954009183E0 /* Build configuration list for PBXNativeTarget "SherginScrollableNavigationBarDemo" */;
+			buildPhases = (
+				846B88386A7F4B24B9A3801B /* Check Pods Manifest.lock */,
+				59845D9C18E9D954009183E0 /* Sources */,
+				59845D9D18E9D954009183E0 /* Frameworks */,
+				59845D9E18E9D954009183E0 /* Resources */,
+				66C16958521F4962A87139E7 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SherginScrollableNavigationBarDemo;
+			productName = SherginScrollableNavigationBarDemo;
+			productReference = 59845DA018E9D954009183E0 /* SherginScrollableNavigationBarDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		59845DBA18E9D954009183E0 /* SherginScrollableNavigationBarDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 59845DCF18E9D954009183E0 /* Build configuration list for PBXNativeTarget "SherginScrollableNavigationBarDemoTests" */;
+			buildPhases = (
+				59845DB718E9D954009183E0 /* Sources */,
+				59845DB818E9D954009183E0 /* Frameworks */,
+				59845DB918E9D954009183E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				59845DC118E9D954009183E0 /* PBXTargetDependency */,
+			);
+			name = SherginScrollableNavigationBarDemoTests;
+			productName = SherginScrollableNavigationBarDemoTests;
+			productReference = 59845DBB18E9D954009183E0 /* SherginScrollableNavigationBarDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		59845D9818E9D954009183E0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Shergin;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "shergin research";
+				TargetAttributes = {
+					59845DBA18E9D954009183E0 = {
+						TestTargetID = 59845D9F18E9D954009183E0;
+					};
+				};
+			};
+			buildConfigurationList = 59845D9B18E9D954009183E0 /* Build configuration list for PBXProject "SherginScrollableNavigationBarDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 59845D9718E9D954009183E0;
+			productRefGroup = 59845DA118E9D954009183E0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				59845D9F18E9D954009183E0 /* SherginScrollableNavigationBarDemo */,
+				59845DBA18E9D954009183E0 /* SherginScrollableNavigationBarDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		59845D9E18E9D954009183E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59845DAE18E9D954009183E0 /* InfoPlist.strings in Resources */,
+				59845DB618E9D954009183E0 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59845DB918E9D954009183E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		66C16958521F4962A87139E7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		846B88386A7F4B24B9A3801B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		59845D9C18E9D954009183E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59845DB018E9D954009183E0 /* main.m in Sources */,
+				59DB668318E9DCB60056C309 /* SherginNavigationTableViewController.m in Sources */,
+				59845DB418E9D954009183E0 /* SherginAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59845DB718E9D954009183E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		59845DC118E9D954009183E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 59845D9F18E9D954009183E0 /* SherginScrollableNavigationBarDemo */;
+			targetProxy = 59845DC018E9D954009183E0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		59845DAC18E9D954009183E0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				59845DAD18E9D954009183E0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		59845DCA18E9D954009183E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		59845DCB18E9D954009183E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		59845DCD18E9D954009183E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A747884EF3824A3AA2D98C18 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SherginScrollableNavigationBarDemo/SherginScrollableNavigationBarDemo-Prefix.pch";
+				INFOPLIST_FILE = "SherginScrollableNavigationBarDemo/SherginScrollableNavigationBarDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		59845DCE18E9D954009183E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A747884EF3824A3AA2D98C18 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SherginScrollableNavigationBarDemo/SherginScrollableNavigationBarDemo-Prefix.pch";
+				INFOPLIST_FILE = "SherginScrollableNavigationBarDemo/SherginScrollableNavigationBarDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		59845DD018E9D954009183E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SherginScrollableNavigationBarDemo.app/SherginScrollableNavigationBarDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SherginScrollableNavigationBarDemo/SherginScrollableNavigationBarDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SherginScrollableNavigationBarDemoTests/SherginScrollableNavigationBarDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		59845DD118E9D954009183E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SherginScrollableNavigationBarDemo.app/SherginScrollableNavigationBarDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SherginScrollableNavigationBarDemo/SherginScrollableNavigationBarDemo-Prefix.pch";
+				INFOPLIST_FILE = "SherginScrollableNavigationBarDemoTests/SherginScrollableNavigationBarDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		59845D9B18E9D954009183E0 /* Build configuration list for PBXProject "SherginScrollableNavigationBarDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59845DCA18E9D954009183E0 /* Debug */,
+				59845DCB18E9D954009183E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		59845DCC18E9D954009183E0 /* Build configuration list for PBXNativeTarget "SherginScrollableNavigationBarDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59845DCD18E9D954009183E0 /* Debug */,
+				59845DCE18E9D954009183E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		59845DCF18E9D954009183E0 /* Build configuration list for PBXNativeTarget "SherginScrollableNavigationBarDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59845DD018E9D954009183E0 /* Debug */,
+				59845DD118E9D954009183E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 59845D9818E9D954009183E0 /* Project object */;
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>94CBC791-A966-42D9-8EA5-4F6F08FF8726</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SherginScrollableNavigationBarDemo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D324DFFC-0CA7-4E3F-900B-50D8DBFE31A4</key>
+		<string>https://github.com/shergin/SherginScrollableNavigationBar.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Example/SherginScrollableNavigationBarDemo/SherginScrollableNavigationBarDemo.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D324DFFC-0CA7-4E3F-900B-50D8DBFE31A4</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/shergin/SherginScrollableNavigationBar.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D324DFFC-0CA7-4E3F-900B-50D8DBFE31A4</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D324DFFC-0CA7-4E3F-900B-50D8DBFE31A4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SherginScrollableNavigationBar</string>
+		</dict>
+	</array>
+</dict>
+</plist>
