@@ -88,72 +88,44 @@ SEL scrollViewDidScrollOriginalSelector;
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:UIApplicationDidChangeStatusBarOrientationNotification
                                                   object:nil];
-}
-
-- (void)swizzleScrollView:(UIScrollView *)scrollView
-{
-    NSObject<UIScrollViewDelegate> *scrollViewDelegate = scrollView.delegate;
-
-    Method methodOriginal = class_getInstanceMethod([scrollViewDelegate class], @selector(scrollViewDidScroll:));
-    Method methodWrapper = class_getInstanceMethod([self class], @selector(scrollViewDidScrollWrapper:));
-
-    if (method_getImplementation(methodOriginal) == method_getImplementation(methodWrapper)) {
-        return;
-    }
-
-    class_addMethod(
-        [scrollViewDelegate class],
-        scrollViewDidScrollOriginalSelector,
-        method_getImplementation(methodOriginal),
-        method_getTypeEncoding(methodOriginal)
-    );
-
-    class_replaceMethod(
-        [scrollViewDelegate class],
-        @selector(scrollViewDidScroll:),
-        method_getImplementation(methodWrapper),
-        method_getTypeEncoding(methodWrapper)
-    );
-}
-
-- (void)scrollViewDidScrollWrapper:(UIScrollView *)scrollView
-{
-    if (scrollView == _self.scrollView) {
-        if (_self.scrollState != SherginScrollableNavigationBarStateNone) {
-            [_self scrollViewDidScroll];
-        }
-    }
-
-    if ([self respondsToSelector:scrollViewDidScrollOriginalSelector]) {
-        #pragma clang diagnostic push
-        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [self performSelector:scrollViewDidScrollOriginalSelector withObject:scrollView];
-        #pragma clang diagnostic pop
-    }
+    self.scrollView = nil;
 }
 
 - (void)setScrollView:(UIScrollView*)scrollView
 {
+    // old scrollView
+    if (_scrollView) {
+        [_scrollView removeGestureRecognizer:self.panGesture];
+
+        [_scrollView removeObserver:self forKeyPath:@"contextOffset"];
+    }
+
     _scrollView = scrollView;
-    if (scrollView) {
-        [self swizzleScrollView:_scrollView];
+
+    // new scrollView
+    if (_scrollView) {
+        [_scrollView addGestureRecognizer:self.panGesture];
+
+        [_scrollView addObserver:self
+                      forKeyPath:@"contentOffset"
+                         options:0
+                         context:NULL];
     }
 
     [self resetToDefaultPosition:NO];
-
-    // remove gesture from current panGesture's view
-    if (self.panGesture.view) {
-        [self.panGesture.view removeGestureRecognizer:self.panGesture];
-    }
-
-    if (scrollView) {
-        [scrollView addGestureRecognizer:self.panGesture];
-    }
 }
 
 - (void)resetToDefaultPosition:(BOOL)animated
 {
     [self setBarOffset:0.0f animated:animated];
+}
+
+#pragma mark - KVO
+
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"contentOffset"] && object == self.scrollView) {
+        [_self scrollViewDidScroll];
+    }
 }
 
 #pragma mark - Notifications
@@ -168,8 +140,7 @@ SEL scrollViewDidScrollOriginalSelector;
 }
 
 #pragma mark - UIGestureRecognizerDelegate
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
-shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
     return YES;
 }
