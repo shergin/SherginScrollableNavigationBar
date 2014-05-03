@@ -35,6 +35,8 @@ typedef enum {
 SherginScrollableNavigationBar *_self;
 const CGFloat DefaultScrollTolerance = 44.0f;
 SEL scrollViewDidScrollOriginalSelector;
+NSString* ScrollViewContentOffsetPropertyName = @"contentOffset";
+NSString* NavigationBarAnimationName = @"SherginScrollableNavigationBar";
 
 @synthesize scrollView = _scrollView;
 
@@ -97,7 +99,7 @@ SEL scrollViewDidScrollOriginalSelector;
     if (_scrollView) {
         [_scrollView removeGestureRecognizer:self.panGesture];
 
-        [_scrollView removeObserver:self forKeyPath:@"contextOffset"];
+        [_scrollView removeObserver:self forKeyPath:ScrollViewContentOffsetPropertyName];
     }
 
     _scrollView = scrollView;
@@ -107,7 +109,7 @@ SEL scrollViewDidScrollOriginalSelector;
         [_scrollView addGestureRecognizer:self.panGesture];
 
         [_scrollView addObserver:self
-                      forKeyPath:@"contentOffset"
+                      forKeyPath:ScrollViewContentOffsetPropertyName
                          options:0
                          context:NULL];
     }
@@ -123,7 +125,7 @@ SEL scrollViewDidScrollOriginalSelector;
 #pragma mark - KVO
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if ([keyPath isEqualToString:@"contentOffset"] && object == self.scrollView) {
+    if ([keyPath isEqualToString:ScrollViewContentOffsetPropertyName] && object == self.scrollView) {
         [_self scrollViewDidScroll];
     }
 }
@@ -302,7 +304,7 @@ SEL scrollViewDidScrollOriginalSelector;
     }
 
     if (animated) {
-        [UIView beginAnimations:@"SherginScrollableNavigationBar" context:nil];
+        [UIView beginAnimations:NavigationBarAnimationName context:nil];
     }
 
     // apply alpha
